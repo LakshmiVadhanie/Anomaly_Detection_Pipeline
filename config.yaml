@@ -1,0 +1,48 @@
+# Adaptive Anomaly Detection Configuration
+
+# Data configuration
+data:
+  n_samples: 2000
+  anomaly_rate: 0.05
+  feature_columns: ['cpu_usage', 'memory_usage', 'network_io', 'disk_io', 'response_time']
+
+# Model configuration
+model:
+  sequence_length: 10
+  feature_dim: 5
+  lstm_hidden_size: 64
+  lstm_num_layers: 2
+  lstm_dropout: 0.2
+  isolation_forest_contamination: 0.1
+  ensemble_lstm_weight: 0.6
+  ensemble_isolation_weight: 0.4
+
+# Training configuration
+training:
+  train_ratio: 0.7
+  lstm_epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+
+# Evaluation configuration
+evaluation:
+  threshold_percentile: 95
+  
+# Kafka configuration
+kafka:
+  bootstrap_servers: 'localhost:9092'
+  topic: 'log_stream'
+
+# Streaming configuration
+streaming:
+  simulation_mode: true
+  batch_size: 100
+  delay: 0.1
+  duration: 60  # seconds for real streaming
+
+# Spark configuration
+spark:
+  app_name: 'AnomalyDetection'
+  window_duration: '1 minute'
+  slide_duration: '30 seconds'
+  watermark: '30 seconds'
