@@ -56,12 +56,6 @@ Log Sources → Kafka Topics → Spark Streaming → Feature Engineering → Mod
 - 100 trial search space exploration
 - Objective: Maximize F1-score while minimizing false positive rate
 
-## Quick Start
-
-### Prerequisites
-- Python 3.8 or higher
-- Virtual environment (recommended)
-- 4GB RAM minimum for model training
 
 ### Installation
 ```bash
